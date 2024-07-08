@@ -1,5 +1,7 @@
 // web component
 class HelloWorld extends HTMLElement {
+  static observedAttributes = ["color", "size"];
+
   constructor() {
     // 必须首先调用 super 方法
     super();
@@ -7,6 +9,9 @@ class HelloWorld extends HTMLElement {
   // connect component
   connectedCallback() {
     this.textContent = "Hello World!";
+  }
+  attributeChangedCallback(name, oldValue, newValue) {
+    console.log(`属性 ${name}, oldValue: ${oldValue}, newValue: ${newValue}`);
   }
 }
 
