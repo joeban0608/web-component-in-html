@@ -1,5 +1,20 @@
+function updateStyle(elem) {
+  const size = elem.getAttribute("size");
+  // console.log("elem", elem);
+  const shadow = elem.shadowRoot;
+  const imgDom = shadow.querySelector("img");
+  imgDom.style.width = `${size}rem`;
+  imgDom.style.height = `${size}rem`;
+  // console.log('elem.getAttribute("size")', elem.getAttribute("size"));
+  // shadow.querySelector("img").textContent = `
+  // `;
+}
 // 为当这个元素创建一个类
 class PopupInfo extends HTMLElement {
+  static get observedAttributes() {
+    return ["color", "size"];
+  }
+
   constructor() {
     // 必须首先调用 super 方法
     super();
@@ -76,6 +91,11 @@ class PopupInfo extends HTMLElement {
     shadow.appendChild(wrapper);
     wrapper.appendChild(icon);
     wrapper.appendChild(info);
+    updateStyle(this);
+  }
+  attributeChangedCallback(property, oldValue, newValue) {
+    if (oldValue === newValue) return;
+    this[property] = newValue;
   }
 }
 customElements.define("popup-info", PopupInfo);
