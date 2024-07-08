@@ -4,9 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Web Component</title>
-    <script src="./script.js"></script>
+    <script src="./web-component/HelloWorld.js"></script>
+    <script src="./web-component/PopupInfo.js"></script>
   </head>
   <body>
-    <hello-world size="100" color="red"></hello-world>
+    <div style="display: flex; flex-direction: column">
+      <hello-world size="100" color="red"></hello-world>
+      <div style="border: 1px solid red; margin-top: 100px">
+        <popup-info
+          img="./logo.png"
+          data-text="Your card validation code (CVC)
+      is an extra security feature — it is the last 3 or 4 numbers on the
+      back of your card."
+        ></popup-info>
+      </div>
+    </div>
   </body>
 </html>
