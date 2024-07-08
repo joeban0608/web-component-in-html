@@ -1,5 +1,7 @@
 # web-component-in-html
 this is web component practice with pure html and js
+> [click to watch the demo](https://joeban0608.github.io/web-component-in-html/)
+
 ---
 resource:
   1. https://kinsta.com/blog/web-components/
